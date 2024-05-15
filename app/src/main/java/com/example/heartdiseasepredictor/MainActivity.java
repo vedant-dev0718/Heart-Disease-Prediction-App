@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton info1, info2, info3, info4, info5, info6, info7, info8;
     private TextView result;
     private Button tips;
-    String url = "https://hearth-disease-prediction-app.herokuapp.com/predict";
+    String url = "https://1f43-2409-40d2-9-1a60-dedd-6eaf-9df3-ac93.ngrok-free.app/predict";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
 
                                     try {
                                         JSONObject jsonObject = new JSONObject(response);
-                                        String data = jsonObject.getString("hearth_disease");
+                                        String data = jsonObject.getString("heart_disease");
                                         tips.setVisibility(1);
 
                                         if (data.equals("0")){

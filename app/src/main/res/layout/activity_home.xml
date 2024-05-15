@@ -10,7 +10,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="#5BDEAC"
+        android:background="@android:color/holo_blue_bright"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -83,7 +83,8 @@
                     <ImageView
                         android:id="@+id/itemLogo"
                         android:layout_width="100dp"
-                        android:layout_height="100dp"
+                            android:visibility="gone"
+                            android:layout_height="100dp"
                         android:layout_gravity="center"
                         android:layout_margin="5dp"
                         android:layout_marginStart="10dp"
@@ -144,6 +145,7 @@
                         android:layout_height="100dp"
                         android:layout_gravity="center"
                         android:layout_margin="5dp"
+                        android:visibility="gone"
                         android:layout_marginStart="10dp"
                         android:src="@drawable/healthy_logo" />
 
@@ -167,10 +169,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
-        android:backgroundTint="#5BDEAC"
+        android:backgroundTint="@android:color/holo_blue_bright"
         android:src="@drawable/ic_file"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:rippleColor="#4CAF50" />
+        app:rippleColor="@android:color/holo_blue_bright" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
