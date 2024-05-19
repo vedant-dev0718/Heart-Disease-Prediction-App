@@ -67,6 +67,7 @@
                         <ImageButton
                                 android:id="@+id/info_age"
                                 android:layout_width="24dp"
+                                android:layout_marginEnd="10dp"
                                 android:layout_height="24dp"
                                 android:gravity="center"
                                 android:background="@drawable/ic_info"
@@ -117,6 +118,7 @@
                                 android:id="@+id/info_sex"
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
+                                android:layout_marginEnd="10dp"
                                 android:gravity="center"
                                 android:background="@drawable/ic_info"
                                 app:layout_constraintEnd_toEndOf="parent"
@@ -165,6 +167,7 @@
                         <ImageButton
                                 android:id="@+id/info_cp"
                                 android:layout_width="24dp"
+                                android:layout_marginEnd="10dp"
                                 android:layout_height="24dp"
                                 android:gravity="center"
                                 android:background="@drawable/ic_info"
@@ -214,6 +217,7 @@
 
                         <ImageButton
                                 android:id="@+id/info_trestbps"
+                                android:layout_marginEnd="10dp"
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
                                 android:gravity="center"
@@ -265,6 +269,7 @@
                                 android:id="@+id/info_chol"
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
+                                android:layout_marginEnd="10dp"
                                 android:gravity="center"
                                 android:background="@drawable/ic_info"
                                 app:layout_constraintEnd_toEndOf="parent"
@@ -313,6 +318,7 @@
                         <ImageButton
                                 android:id="@+id/info_fbs"
                                 android:layout_width="24dp"
+                                android:layout_marginEnd="10dp"
                                 android:layout_height="24dp"
                                 android:gravity="center"
                                 android:background="@drawable/ic_info"
@@ -361,6 +367,7 @@
 
                         <ImageButton
                                 android:id="@+id/info_restecg"
+                                android:layout_marginEnd="10dp"
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
                                 android:gravity="center"
@@ -411,6 +418,7 @@
                         <ImageButton
                                 android:id="@+id/info_thalach"
                                 android:layout_width="24dp"
+                                android:layout_marginEnd="10dp"
                                 android:layout_height="24dp"
                                 android:gravity="center"
                                 android:background="@drawable/ic_info"
@@ -461,6 +469,7 @@
                                 android:id="@+id/info_exang"
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
+                                android:layout_marginEnd="10dp"
                                 android:gravity="center"
                                 android:background="@drawable/ic_info"
                                 app:layout_constraintEnd_toEndOf="parent"
@@ -511,6 +520,7 @@
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
                                 android:gravity="center"
+                                android:layout_marginEnd="10dp"
                                 android:background="@drawable/ic_info"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
@@ -561,6 +571,7 @@
                                 android:layout_height="24dp"
                                 android:gravity="center"
                                 android:background="@drawable/ic_info"
+                                android:layout_marginEnd="10dp"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
                                 app:layout_constraintBottom_toBottomOf="parent" />
@@ -610,6 +621,7 @@
                                 android:layout_height="24dp"
                                 android:gravity="center"
                                 android:background="@drawable/ic_info"
+                                android:layout_marginEnd="10dp"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
                                 app:layout_constraintBottom_toBottomOf="parent" />
@@ -657,6 +669,7 @@
                                 android:id="@+id/info_thal"
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
+                                android:layout_marginEnd="10dp"
                                 android:gravity="center"
                                 android:background="@drawable/ic_info"
                                 app:layout_constraintEnd_toEndOf="parent"

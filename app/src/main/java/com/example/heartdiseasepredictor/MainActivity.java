@@ -178,9 +178,10 @@ public class MainActivity extends AppCompatActivity {
                             JSONObject jsonObject = new JSONObject(response);
                             Log.d("API_RESPONSE", jsonObject.toString());
 
-                            String logisticPrediction = jsonObject.getString("logistic_regression_prediction");
-                            String knnPrediction = jsonObject.getString("knn_prediction");
-                            String rfPrediction = jsonObject.getString("random_forest_prediction");
+                            Double logisticPrediction = jsonObject.getDouble(
+                                    "logistic_regression_prediction");
+                            Double knnPrediction = jsonObject.getDouble("knn_prediction");
+                            Double rfPrediction = jsonObject.getDouble("random_forest_prediction");
 
                             String resultText = "Logistic Regression Prediction: " + logisticPrediction + "\n"
                                     + "KNN Prediction: " + knnPrediction + "\n"
@@ -189,7 +190,7 @@ public class MainActivity extends AppCompatActivity {
                             result.setText(resultText);
                             tips.setVisibility(View.VISIBLE);
 
-                            clearInputs();
+//                            clearInputs();
 
                         } catch (JSONException e) {
                             e.printStackTrace();
