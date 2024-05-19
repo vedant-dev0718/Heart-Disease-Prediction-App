@@ -11,7 +11,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EdgeEffect;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -33,217 +32,220 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText cp, thalach, slope, restecg, chol, trestbps, fbs, oldpeak;
+    private EditText age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal;
     private Button predict;
-    private ImageButton info1, info2, info3, info4, info5, info6, info7, info8;
     private TextView result;
     private Button tips;
-    String url = "https://1f43-2409-40d2-9-1a60-dedd-6eaf-9df3-ac93.ngrok-free.app/predict";
+
+    private ImageButton infoAge, infoSex, infoCp, infoTrestbps, infoChol, infoFbs, infoRestecg, infoThalach, infoExang, infoOldpeak, infoSlope, infoCa, infoThal;
+
+    String url = "https://58d1-2409-40d2-58-6205-7a50-1725-c8f4-cae7.ngrok-free.app/predict";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        age = findViewById(R.id.age);
+        sex = findViewById(R.id.sex);
         cp = findViewById(R.id.cp);
-        thalach = findViewById(R.id.thalach);
-        slope = findViewById(R.id.slope);
-        restecg = findViewById(R.id.restecg);
-        chol = findViewById(R.id.chol);
         trestbps = findViewById(R.id.trestbps);
+        chol = findViewById(R.id.chol);
         fbs = findViewById(R.id.fbs);
+        restecg = findViewById(R.id.restecg);
+        thalach = findViewById(R.id.thalach);
+        exang = findViewById(R.id.exang);
         oldpeak = findViewById(R.id.oldpeak);
+        slope = findViewById(R.id.slope);
+        ca = findViewById(R.id.ca);
+        thal = findViewById(R.id.thal);
         predict = findViewById(R.id.predict);
-        info1 = findViewById(R.id.info1);
-        info2 = findViewById(R.id.info2);
-        info3 = findViewById(R.id.info3);
-        info4 = findViewById(R.id.info4);
-        info5 = findViewById(R.id.info5);
-        info6 = findViewById(R.id.info6);
-        info7 = findViewById(R.id.info7);
-        info8 = findViewById(R.id.info8);
         result = findViewById(R.id.result);
         tips = findViewById(R.id.tips);
 
-        predict.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        infoAge = findViewById(R.id.info_age);
+        infoSex = findViewById(R.id.info_sex);
+        infoCp = findViewById(R.id.info_cp);
+        infoTrestbps = findViewById(R.id.info_trestbps);
+        infoChol = findViewById(R.id.info_chol);
+        infoFbs = findViewById(R.id.info_fbs);
+        infoRestecg = findViewById(R.id.info_restecg);
+        infoThalach = findViewById(R.id.info_thalach);
+        infoExang = findViewById(R.id.info_exang);
+        infoOldpeak = findViewById(R.id.info_oldpeak);
+        infoSlope = findViewById(R.id.info_slope);
+        infoCa = findViewById(R.id.info_ca);
+        infoThal = findViewById(R.id.info_thal);
 
-                if (cp.getText().toString().isEmpty() || (!cp.getText().toString().equals("0")
-                        && !cp.getText().toString().equals("1") && !cp.getText().toString().equals("2") && !cp.getText().toString().equals("3"))){
-                    cp.setError("Should be in 0-3 range");
-                }else if (thalach.getText().toString().isEmpty() || Integer.parseInt(thalach.getText().toString()) < 0){
-                    thalach.setError("Cannot be Empty");
-                }else if (slope.getText().toString().isEmpty() || (!slope.getText().toString().equals("0")
-                        && !slope.getText().toString().equals("1") && !slope.getText().toString().equals("2"))){
-                    slope.setError("Should be in 0-2 range");
-                }else if (restecg.getText().toString().isEmpty() || (!restecg.getText().toString().equals("0")
-                        && !restecg.getText().toString().equals("1") && !restecg.getText().toString().equals("2"))){
-                    restecg.setError("Should be in 0-2 range");
-                }else if (chol.getText().toString().isEmpty() || Integer.parseInt(chol.getText().toString()) < 0){
-                    chol.setError("Cannot be Empty");
-                }else if (trestbps.getText().toString().isEmpty() || Integer.parseInt(trestbps.getText().toString()) < 0){
-                    trestbps.setError("Cannot be Empty");
-                }else if (fbs.getText().toString().isEmpty() || (!fbs.getText().toString().equals("0") && !fbs.getText().toString().equals("1"))){
-                    fbs.setError("Should be in 0-1 range");
-                }else if (oldpeak.getText().toString().isEmpty() || Float.parseFloat(oldpeak.getText().toString()) < 0){
-                    oldpeak.setError("Cannot be Empty");
-                }else {
-                    //API -> Volley
+        infoAge.setOnClickListener(v -> showInfoDialog("Age", "Age of the patient"));
+        infoSex.setOnClickListener(v -> showInfoDialog("Sex", "Sex of the patient: 0 = female, 1 = male"));
+        infoCp.setOnClickListener(v -> showInfoDialog("Chest Pain Type", "Chest pain type: 0 = typical angina, 1 = atypical angina, 2 = non-anginal pain, 3 = asymptomatic"));
+        infoTrestbps.setOnClickListener(v -> showInfoDialog("Resting Blood Pressure", "Resting blood pressure (in mm Hg) on admission to the hospital"));
+        infoChol.setOnClickListener(v -> showInfoDialog("Serum Cholesterol", "Serum cholesterol in mg/dl"));
+        infoFbs.setOnClickListener(v -> showInfoDialog("Fasting Blood Sugar", "Fasting blood sugar > 120 mg/dl: 1 = true, 0 = false"));
+        infoRestecg.setOnClickListener(v -> showInfoDialog("Resting ECG", "Resting electrocardiographic results: 0 = normal, 1 = having ST-T wave abnormality, 2 = showing probable or definite left ventricular hypertrophy"));
+        infoThalach.setOnClickListener(v -> showInfoDialog("Maximum Heart Rate", "Maximum heart rate achieved"));
+        infoExang.setOnClickListener(v -> showInfoDialog("Exercise Induced Angina", "Exercise induced angina: 1 = yes, 0 = no"));
+        infoOldpeak.setOnClickListener(v -> showInfoDialog("ST Depression", "ST depression induced by exercise relative to rest"));
+        infoSlope.setOnClickListener(v -> showInfoDialog("ST Slope", "Slope of the peak exercise ST segment: 0 = upsloping, 1 = flat, 2 = downsloping"));
+        infoCa.setOnClickListener(v -> showInfoDialog("Major Vessels", "Number of major vessels (0-3) colored by fluoroscopy"));
+        infoThal.setOnClickListener(v -> showInfoDialog("Thalassemia", "Thalassemia: 1 = normal, 2 = fixed defect, 3 = reversable defect"));
 
-                    StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
-                            new Response.Listener<String>() {
-                                @SuppressLint("WrongConstant")
-                                @Override
-                                public void onResponse(String response) {
-
-                                    try {
-                                        JSONObject jsonObject = new JSONObject(response);
-                                        String data = jsonObject.getString("heart_disease");
-                                        tips.setVisibility(1);
-
-                                        if (data.equals("0")){
-                                            result.setTextColor(Color.parseColor("#5bdeac"));
-                                            result.setText("81.97% Chances of No Heart Disease");
-                                        }else {
-                                            result.setTextColor(Color.parseColor("#EC4C4C"));
-                                            result.setText("81.97% Chances of Heart Disease");
-                                        }
-
-                                        cp.setText("");
-                                        thalach.setText("");
-                                        slope.setText("");
-                                        restecg.setText("");
-                                        chol.setText("");
-                                        trestbps.setText("");
-                                        fbs.setText("");
-                                        oldpeak.setText("");
-
-                                    } catch (JSONException e) {
-                                        e.printStackTrace();
-                                    }
-                                }
-                            }, new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            String err = (error.getMessage()==null)?"Failed! Please Try Again":error.getMessage();
-                            Toast.makeText(MainActivity.this,err,Toast.LENGTH_SHORT).show();
-                            Log.d("API ERROR : ", err);
-                        }
-                    }){
-                        @Override
-                        protected Map<String,String> getParams(){
-
-                            Map<String,String> params = new HashMap<String, String>();
-                            params.put("cp",cp.getText().toString());
-                            params.put("thalach",thalach.getText().toString());
-                            params.put("slope",slope.getText().toString());
-                            params.put("restecg",restecg.getText().toString());
-                            params.put("chol",chol.getText().toString());
-                            params.put("trestbps",trestbps.getText().toString());
-                            params.put("fbs",fbs.getText().toString());
-                            params.put("oldpeak",oldpeak.getText().toString());
-
-                            return params;
-                        }
-                    };
-
-                    RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
-                    queue.add(stringRequest);
-                }
+        predict.setOnClickListener(v -> {
+            if (isValidInput()) {
+                sendPredictionRequest();
             }
         });
 
-        info1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String info = "It should display the type of chest-pain experienced by the individual using the following format :\n" +
-                        "0 = typical angina\n" +
-                        "1 = atypical angina\n" +
-                        "2 = non — anginal pain\n" +
-                        "3 = asymptotic";
-                infoDialog("Chest-pain type:",info);
-            }
-        });
-
-        info2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String info = "It should display the max heart rate achieved by an individual.";
-                infoDialog("Max heart rate:",info);
-            }
-        });
-
-        info3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String info = "Peak exercise ST segment :\n" +
-                        "0 = upsloping\n" +
-                        "1 = flat\n" +
-                        "2 = downsloping";
-                infoDialog("Exercise ST:",info);
-            }
-        });
-
-        info4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String info = "It should display resting electrocardiographic results\n" +
-                        "0 = normal\n" +
-                        "1 = having ST-T wave abnormality\n" +
-                        "2 = left ventricular hyperthrophy";
-                infoDialog("Resting ECG:",info);
-            }
-        });
-
-        info5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String info = "It should display the serum cholesterol in mg/dl (unit)";
-                infoDialog("Cholestrol:",info);
-            }
-        });
-
-        info6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String info = "It should display the resting blood pressure value of an individual in mmHg (unit)";
-                infoDialog("Resting Blood Pressure:",info);
-            }
-        });
-
-        info7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String info = "It compares the fasting blood sugar value of an individual with 120mg/dl.\n" +
-                        "If fasting blood sugar > 120mg/dl then : 1 (true)\n" +
-                        "else : 0 (false)";
-                infoDialog("Fasting Blood Sugar:",info);
-            }
-        });
-
-        info8.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String info = "ST depression induced by exercise relative to rest, should display the value which is an integer or float. Write zero (0) if nothing.";
-                infoDialog("ST depression:",info);
-            }
-        });
-
-        tips.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,InfoActivity.class));
-                finish();
-            }
+        tips.setOnClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, InfoActivity.class));
+            finish();
         });
     }
 
-    private void infoDialog(String i, String string) {
+    private boolean isValidInput() {
+        if (age.getText().toString().isEmpty()) {
+            age.setError("Cannot be Empty");
+            return false;
+        }
+        if (sex.getText().toString().isEmpty() || (!sex.getText().toString().equals("0") && !sex.getText().toString().equals("1"))) {
+            sex.setError("Should be 0 or 1");
+            return false;
+        }
+        if (cp.getText().toString().isEmpty() || !isInRange(cp.getText().toString(), 0, 3)) {
+            cp.setError("Should be in 0-3 range");
+            return false;
+        }
+        if (trestbps.getText().toString().isEmpty() || Integer.parseInt(trestbps.getText().toString()) < 0) {
+            trestbps.setError("Cannot be Empty");
+            return false;
+        }
+        if (chol.getText().toString().isEmpty() || Integer.parseInt(chol.getText().toString()) < 0) {
+            chol.setError("Cannot be Empty");
+            return false;
+        }
+        if (fbs.getText().toString().isEmpty() || (!fbs.getText().toString().equals("0") && !fbs.getText().toString().equals("1"))) {
+            fbs.setError("Should be 0 or 1");
+            return false;
+        }
+        if (restecg.getText().toString().isEmpty() || !isInRange(restecg.getText().toString(), 0, 2)) {
+            restecg.setError("Should be in 0-2 range");
+            return false;
+        }
+        if (thalach.getText().toString().isEmpty() || Integer.parseInt(thalach.getText().toString()) < 0) {
+            thalach.setError("Cannot be Empty");
+            return false;
+        }
+        if (exang.getText().toString().isEmpty() || (!exang.getText().toString().equals("0") && !exang.getText().toString().equals("1"))) {
+            exang.setError("Should be 0 or 1");
+            return false;
+        }
+        if (oldpeak.getText().toString().isEmpty() || Float.parseFloat(oldpeak.getText().toString()) < 0) {
+            oldpeak.setError("Cannot be Empty");
+            return false;
+        }
+        if (slope.getText().toString().isEmpty() || !isInRange(slope.getText().toString(), 0, 2)) {
+            slope.setError("Should be in 0-2 range");
+            return false;
+        }
+        if (ca.getText().toString().isEmpty() || !isInRange(ca.getText().toString(), 0, 3)) {
+            ca.setError("Should be in 0-3 range");
+            return false;
+        }
+        if (thal.getText().toString().isEmpty() || !isInRange(thal.getText().toString(), 1, 3)) {
+            thal.setError("Should be in 1-3 range");
+            return false;
+        }
+        return true;
+    }
 
-        Dialog dialog;
-        dialog = new Dialog(MainActivity.this);
+    private boolean isInRange(String value, int min, int max) {
+        try {
+            int intValue = Integer.parseInt(value);
+            return intValue >= min && intValue <= max;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
 
+    private void sendPredictionRequest() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
+                new Response.Listener<String>() {
+                    @SuppressLint("WrongConstant")
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            Log.d("API_RESPONSE", jsonObject.toString());
+
+                            String logisticPrediction = jsonObject.getString("logistic_regression_prediction");
+                            String knnPrediction = jsonObject.getString("knn_prediction");
+                            String rfPrediction = jsonObject.getString("random_forest_prediction");
+
+                            String resultText = "Logistic Regression Prediction: " + logisticPrediction + "\n"
+                                    + "KNN Prediction: " + knnPrediction + "\n"
+                                    + "Random Forest Prediction: " + rfPrediction;
+
+                            result.setText(resultText);
+                            tips.setVisibility(View.VISIBLE);
+
+                            clearInputs();
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                String err = (error.getMessage() == null) ? "Failed! Please Try Again" : error.getMessage();
+                Toast.makeText(MainActivity.this, err, Toast.LENGTH_SHORT).show();
+                Log.d("API_ERROR", err);
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<>();
+                params.put("Age", age.getText().toString());
+                params.put("Sex", sex.getText().toString());
+                params.put("Chest_pain", cp.getText().toString());
+                params.put("Resting_blood_pressure", trestbps.getText().toString());
+                params.put("Cholesterol", chol.getText().toString());
+                params.put("Fasting_blood_sugar", fbs.getText().toString());
+                params.put("ECG_results", restecg.getText().toString());
+                params.put("Maximum_heart_rate", thalach.getText().toString());
+                params.put("Exercise_induced_angina", exang.getText().toString());
+                params.put("ST_depression", oldpeak.getText().toString());
+                params.put("ST_slope", slope.getText().toString());
+                params.put("Major_vessels", ca.getText().toString());
+                params.put("Thalassemia_types", thal.getText().toString());
+
+                return params;
+            }
+        };
+
+        RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
+        queue.add(stringRequest);
+    }
+
+    private void clearInputs() {
+        age.setText("");
+        sex.setText("");
+        cp.setText("");
+        trestbps.setText("");
+        chol.setText("");
+        fbs.setText("");
+        restecg.setText("");
+        thalach.setText("");
+        exang.setText("");
+        oldpeak.setText("");
+        slope.setText("");
+        ca.setText("");
+        thal.setText("");
+    }
+
+    private void showInfoDialog(String title, String message) {
+        Dialog dialog = new Dialog(MainActivity.this);
         dialog.setContentView(R.layout.info_dialog);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
@@ -251,15 +253,10 @@ public class MainActivity extends AppCompatActivity {
         TextView nameDialog = dialog.findViewById(R.id.nameDialog);
         TextView infoDialog = dialog.findViewById(R.id.infoDialog);
 
-        nameDialog.setText(""+i);
-        infoDialog.setText(string);
+        nameDialog.setText(title);
+        infoDialog.setText(message);
 
-        close.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.cancel();
-            }
-        });
+        close.setOnClickListener(v -> dialog.dismiss());
         dialog.show();
     }
 }

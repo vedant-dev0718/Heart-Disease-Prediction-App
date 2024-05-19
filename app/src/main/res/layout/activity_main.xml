@@ -1,468 +1,702 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:orientation="vertical">
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Fill in your Details"
-        android:gravity="center"
-        android:layout_margin="10dp"
-            android:textColor="@android:color/black"
-        android:textSize="20sp"
-        android:textStyle="bold"/>
-
-    <androidx.core.widget.NestedScrollView
+<LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:context=".MainActivity">
 
-        <LinearLayout
+        <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:text="Fill in your Details"
+                android:gravity="center"
+                android:layout_margin="10dp"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+        <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
             <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginTop="10dp">
+                    android:orientation="vertical">
 
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Chest Pain type"
-                        android:textColor="@android:color/black"
-                        android:textStyle="bold"
-                        android:textSize="16sp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="5dp" />
-
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <!-- Age -->
+                <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:background="@drawable/backwithborder"
-                        android:layout_marginEnd="10dp">
+                        android:orientation="vertical"
+                        android:layout_marginTop="10dp">
 
-                    <EditText
-                            android:id="@+id/cp"
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Age"
+                            android:textColor="@android:color/black"
+                            android:textStyle="bold"
+                            android:textSize="16sp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="5dp" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:padding="10dp"
-                            android:background="@android:color/transparent"
-                            android:numeric="integer"
-                            android:textSize="16sp"
-                            android:layout_marginEnd="20dp"
-                            app:layout_constraintEnd_toStartOf="@+id/info1"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                    <ImageButton
-                            android:id="@+id/info1"
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:gravity="center"
-                            android:background="@drawable/ic_info"
                             android:layout_marginStart="10dp"
                             android:layout_marginEnd="10dp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintBottom_toBottomOf="parent" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                            android:background="@drawable/backwithborder">
 
-            </LinearLayout>
+                        <EditText
+                                android:id="@+id/age"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:background="@android:color/transparent"
+                                android:inputType="number"
+                                android:textSize="16sp"
+                                app:layout_constraintEnd_toStartOf="@+id/info_age"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
 
-            <LinearLayout
-                    android:layout_width="match_parent"
-                    android:orientation="vertical"
-                    android:layout_height="wrap_content">
+                        <ImageButton
+                                android:id="@+id/info_age"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:gravity="center"
+                                android:background="@drawable/ic_info"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
 
-                <TextView
-                        android:layout_width="110dp"
-                        android:layout_height="wrap_content"
-                        android:textColor="@android:color/black"
-                        android:text="Max heart rate"
-                        android:textStyle="bold"
-                        android:textSize="16sp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp" />
-
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <!-- Gender -->
+                <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:background="@drawable/backwithborder"
-                        android:layout_marginEnd="10dp">
+                        android:orientation="vertical"
+                        android:layout_marginTop="10dp">
 
-                    <EditText
-                            android:id="@+id/thalach"
-                            android:layout_width="match_parent"
+                    <TextView
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:padding="10dp"
-                            android:numeric="integer"
+                            android:text="Gender"
+                            android:textColor="@android:color/black"
+                            android:textStyle="bold"
                             android:textSize="16sp"
-                            android:background="@android:color/transparent"
-                            android:layout_marginEnd="20dp"
-                            app:layout_constraintEnd_toStartOf="@+id/info2"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                    <ImageButton
-                            android:id="@+id/info2"
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:layout_gravity="center"
-                            android:layout_margin="10dp"
-                            android:background="@drawable/ic_info"
                             android:layout_marginStart="10dp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintBottom_toBottomOf="parent" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="5dp" />
 
-            </LinearLayout>
-
-            <LinearLayout
-                    android:layout_width="match_parent"
-                    android:orientation="vertical"
-                    android:layout_height="wrap_content">
-
-                <TextView
-                        android:layout_width="110dp"
-                        android:layout_height="wrap_content"
-                        android:text="Exercise ST"
-                        android:textStyle="bold"
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp" />
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:background="@drawable/backwithborder"
-                        android:layout_marginEnd="10dp">
-
-                    <EditText
-                            android:id="@+id/slope"
+                    <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:numeric="integer"
-                            android:textSize="16sp"
-                            android:padding="10dp"
-                            android:background="@android:color/transparent"
-                            android:layout_marginEnd="20dp"
-                            app:layout_constraintEnd_toStartOf="@+id/info3"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                    <ImageButton
-                            android:id="@+id/info3"
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:layout_gravity="center"
+                            android:layout_marginStart="10dp"
                             android:layout_marginEnd="10dp"
-                            android:background="@drawable/ic_info"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="1.0"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintBottom_toBottomOf="parent" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                            android:background="@drawable/backwithborder">
 
-            </LinearLayout>
+                        <EditText
+                                android:id="@+id/sex"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:background="@android:color/transparent"
+                                android:inputType="text"
+                                android:textSize="16sp"
+                                app:layout_constraintEnd_toStartOf="@+id/info_sex"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
 
-            <LinearLayout
-                    android:layout_width="match_parent"
-                    android:orientation="vertical"
-                    android:layout_height="wrap_content">
+                        <ImageButton
+                                android:id="@+id/info_sex"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:gravity="center"
+                                android:background="@drawable/ic_info"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
 
-                <TextView
-                        android:layout_width="110dp"
-                        android:layout_height="wrap_content"
-                        android:text="Resting ECG"
-                        android:textColor="@android:color/black"
-                        android:textStyle="bold"
-                        android:textSize="16sp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp" />
-
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <!-- Chest Pain type -->
+                <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:background="@drawable/backwithborder"
-                        android:layout_marginEnd="10dp">
+                        android:orientation="vertical"
+                        android:layout_marginTop="10dp">
 
-                    <EditText
-                            android:id="@+id/restecg"
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Chest Pain type"
+                            android:textColor="@android:color/black"
+                            android:textStyle="bold"
+                            android:textSize="16sp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="5dp" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:numeric="integer"
-                            android:textSize="16sp"
-                            android:padding="10dp"
-                            android:background="@android:color/transparent"
-                            android:layout_marginEnd="20dp"
-                            app:layout_constraintEnd_toStartOf="@+id/info4"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                    <ImageButton
-                            android:id="@+id/info4"
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:layout_gravity="center"
-                            android:background="@drawable/ic_info"
+                            android:layout_marginStart="10dp"
                             android:layout_marginEnd="10dp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintBottom_toBottomOf="parent" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                            android:background="@drawable/backwithborder">
 
-            </LinearLayout>
+                        <EditText
+                                android:id="@+id/cp"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:background="@android:color/transparent"
+                                android:inputType="number"
+                                android:textSize="16sp"
+                                app:layout_constraintEnd_toStartOf="@+id/info_cp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
 
-            <LinearLayout
-                    android:layout_width="match_parent"
-                    android:orientation="vertical"
-                    android:layout_height="wrap_content">
+                        <ImageButton
+                                android:id="@+id/info_cp"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:gravity="center"
+                                android:background="@drawable/ic_info"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
 
-                <TextView
-                        android:layout_width="110dp"
-                        android:layout_height="wrap_content"
-                        android:text="Cholestrol"
-                        android:textColor="@android:color/black"
-                        android:textStyle="bold"
-                        android:textSize="16sp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp" />
-
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <!-- Resting Blood Pressure -->
+                <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:background="@drawable/backwithborder"
-                        android:layout_marginEnd="10dp">
+                        android:orientation="vertical"
+                        android:layout_marginTop="10dp">
 
-                    <EditText
-                            android:id="@+id/chol"
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Resting Blood Pressure"
+                            android:textColor="@android:color/black"
+                            android:textStyle="bold
+"
+                            android:textSize="16sp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="5dp" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:numeric="integer"
-                            android:textSize="16sp"
-                            android:layout_marginEnd="20dp"
-                            android:background="@android:color/transparent"
-                            android:padding="10dp"
-                            app:layout_constraintEnd_toStartOf="@+id/info5"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                    <ImageButton
-                            android:id="@+id/info5"
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:layout_gravity="center"
+                            android:layout_marginStart="10dp"
                             android:layout_marginEnd="10dp"
-                            android:background="@drawable/ic_info"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintBottom_toBottomOf="parent" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                            android:background="@drawable/backwithborder">
 
-            </LinearLayout>
+                        <EditText
+                                android:id="@+id/trestbps"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:background="@android:color/transparent"
+                                android:inputType="number"
+                                android:textSize="16sp"
+                                app:layout_constraintEnd_toStartOf="@+id/info_trestbps"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
 
-            <LinearLayout
-                    android:layout_width="match_parent"
-                    android:orientation="vertical"
-                    android:layout_height="wrap_content">
+                        <ImageButton
+                                android:id="@+id/info_trestbps"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:gravity="center"
+                                android:background="@drawable/ic_info"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
 
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Resting Blood Pressure"
-                        android:textStyle="bold"
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp" />
-
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <!-- Cholesterol Level -->
+                <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:background="@drawable/backwithborder"
-                        android:layout_marginEnd="10dp">
+                        android:orientation="vertical"
+                        android:layout_marginTop="10dp">
 
-                    <EditText
-                            android:id="@+id/trestbps"
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Cholesterol Level"
+                            android:textColor="@android:color/black"
+                            android:textStyle="bold"
+                            android:textSize="16sp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="5dp" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:numeric="integer"
-                            android:textSize="16sp"
-                            android:background="@android:color/transparent"
-                            android:padding="10dp"
-                            android:layout_marginEnd="20dp"
-                            app:layout_constraintEnd_toStartOf="@+id/info6"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                    <ImageButton
-                            android:id="@+id/info6"
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:layout_gravity="center"
+                            android:layout_marginStart="10dp"
                             android:layout_marginEnd="10dp"
-                            android:background="@drawable/ic_info"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintBottom_toBottomOf="parent" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                            android:background="@drawable/backwithborder">
 
-            </LinearLayout>
+                        <EditText
+                                android:id="@+id/chol"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:background="@android:color/transparent"
+                                android:inputType="number"
+                                android:textSize="16sp"
+                                app:layout_constraintEnd_toStartOf="@+id/info_chol"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
 
-            <LinearLayout
-                    android:layout_width="match_parent"
-                    android:orientation="vertical"
-                    android:layout_height="wrap_content">
+                        <ImageButton
+                                android:id="@+id/info_chol"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:gravity="center"
+                                android:background="@drawable/ic_info"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
 
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Fasting Blood Sugar"
-                        android:textColor="@android:color/black"
-                        android:textStyle="bold"
-                        android:textSize="16sp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp" />
-
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <!-- Fasting Blood Sugar Level -->
+                <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:background="@drawable/backwithborder"
-                        android:layout_marginEnd="10dp">
+                        android:orientation="vertical"
+                        android:layout_marginTop="10dp">
 
-                    <EditText
-                            android:id="@+id/fbs"
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Fasting Blood Sugar Level"
+                            android:textColor="@android:color/black"
+                            android:textStyle="bold"
+                            android:textSize="16sp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="5dp" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:numeric="integer"
-                            android:textSize="16sp"
-                            android:layout_marginEnd="20dp"
-                            android:background="@android:color/transparent"
-                            android:padding="10dp"
-                            app:layout_constraintEnd_toStartOf="@+id/info7"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                    <ImageButton
-                            android:id="@+id/info7"
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:layout_gravity="center"
-                            android:background="@drawable/ic_info"
+                            android:layout_marginStart="10dp"
                             android:layout_marginEnd="10dp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintBottom_toBottomOf="parent" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                            android:background="@drawable/backwithborder">
 
-            </LinearLayout>
+                        <EditText
+                                android:id="@+id/fbs"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:background="@android:color/transparent"
+                                android:inputType="number"
+                                android:textSize="16sp"
+                                app:layout_constraintEnd_toStartOf="@+id/info_fbs"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
 
-            <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_gravity="center_vertical">
+                        <ImageButton
+                                android:id="@+id/info_fbs"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:gravity="center"
+                                android:background="@drawable/ic_info"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
 
-                <TextView
-                        android:layout_width="110dp"
-                        android:layout_height="wrap_content"
-                        android:textColor="@android:color/black"
-                        android:text="ST depression"
-                        android:textStyle="bold"
-                        android:textSize="16sp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp" />
-
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <!-- Resting Electrocardiographic Results -->
+                <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:background="@drawable/backwithborder"
-                        android:layout_marginEnd="10dp">
+                        android:orientation="vertical"
+                        android:layout_marginTop="10dp">
 
-                    <EditText
-                            android:id="@+id/oldpeak"
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Resting Electrocardiographic Results"
+                            android:textColor="@android:color/black"
+                            android:textStyle="bold"
+                            android:textSize="16sp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="5dp" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:numeric="decimal"
-                            android:textSize="16sp"
-                            android:background="@android:color/transparent"
-                            android:padding="10dp"
-                            android:layout_marginEnd="20dp"
-                            app:layout_constraintEnd_toStartOf="@+id/info8"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                    <ImageButton
-                            android:id="@+id/info8"
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:background="@drawable/ic_info"
-                            android:gravity="center"
+                            android:layout_marginStart="10dp"
                             android:layout_marginEnd="10dp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintBottom_toBottomOf="parent" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                            android:background="@drawable/backwithborder">
+
+                        <EditText
+                                android:id="@+id/restecg"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:background="@android:color/transparent"
+                                android:inputType="number"
+                                android:textSize="16sp"
+                                app:layout_constraintEnd_toStartOf="@+id/info_restecg"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageButton
+                                android:id="@+id/info_restecg"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:gravity="center"
+                                android:background="@drawable/ic_info"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+
+                <!-- Maximum Heart Rate Achieved -->
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="10dp">
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Maximum Heart Rate Achieved"
+                            android:textColor="@android:color/black"
+                            android:textStyle="bold"
+                            android:textSize="16sp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="5dp" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:background="@drawable/backwithborder">
+
+                        <EditText
+                                android:id="@+id/thalach"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:background="@android:color/transparent"
+                                android:inputType="number"
+                                android:textSize="16sp"
+                                app:layout_constraintEnd_toStartOf="@+id/info_thalach"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageButton
+                                android:id="@+id/info_thalach"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:gravity="center"
+                                android:background="@drawable/ic_info"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+
+                <!-- Exercise Induced Angina -->
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="10dp">
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Exercise Induced Angina"
+                            android:textColor="@android:color/black"
+                            android:textStyle="bold"
+                            android:textSize="16sp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="5dp" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:background="@drawable/backwithborder">
+
+                        <EditText
+                                android:id="@+id/exang"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:background="@android:color/transparent"
+                                android:inputType="number"
+                                android:textSize="16sp"
+                                app:layout_constraintEnd_toStartOf="@+id/info_exang"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageButton
+                                android:id="@+id/info_exang"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:gravity="center"
+                                android:background="@drawable/ic_info"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+
+                <!-- Oldpeak -->
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="10dp">
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Oldpeak"
+                            android:textColor="@android:color/black"
+                            android:textStyle="bold"
+                            android:textSize="16sp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="5dp" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:background="@drawable/backwithborder">
+
+                        <EditText
+                                android:id="@+id/oldpeak"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:background="@android:color/transparent"
+                                android:inputType="numberDecimal"
+                                android:textSize="16sp"
+                                app:layout_constraintEnd_toStartOf="@+id/info_oldpeak"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageButton
+                                android:id="@+id/info_oldpeak"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:gravity="center"
+                                android:background="@drawable/ic_info"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+
+                <!-- Slope -->
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="10dp">
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Slope"
+                            android:textColor="@android:color/black"
+                            android:textStyle="bold"
+                            android:textSize="16sp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="5dp" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:background="@drawable/backwithborder">
+
+                        <EditText
+                                android:id="@+id/slope"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:background="@android:color/transparent"
+                                android:inputType="number"
+                                android:textSize="16sp"
+                                app:layout_constraintEnd_toStartOf="@+id/info_slope"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageButton
+                                android:id="@+id/info_slope"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:gravity="center"
+                                android:background="@drawable/ic_info"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+
+                <!-- Number of Major Vessels -->
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="10dp">
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Number of Major Vessels"
+                            android:textColor="@android:color/black"
+                            android:textStyle="bold"
+                            android:textSize="16sp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="5dp" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:background="@drawable/backwithborder">
+
+                        <EditText
+                                android:id="@+id/ca"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:background="@android:color/transparent"
+                                android:inputType="number"
+                                android:textSize="16sp"
+                                app:layout_constraintEnd_toStartOf="@+id/info_ca"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageButton
+                                android:id="@+id/info_ca"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:gravity="center"
+                                android:background="@drawable/ic_info"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+
+                <!-- Thalassemia -->
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="10dp">
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Thalassemia"
+                            android:textColor="@android:color/black"
+                            android:textStyle="bold"
+                            android:textSize="16sp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="5dp" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:background="@drawable/backwithborder">
+
+                        <EditText
+                                android:id="@+id/thal"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:background="@android:color/transparent"
+                                android:inputType="number"
+                                android:textSize="16sp"
+                                app:layout_constraintEnd_toStartOf="@+id/info_thal"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageButton
+                                android:id="@+id/info_thal"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:gravity="center"
+                                android:background="@drawable/ic_info"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+                <Button
+                        android:id="@+id/predict"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="PREDICT"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="5dp" />
+
+                <TextView
+                        android:id="@+id/result"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp" />
+
+                <Button
+                        android:id="@+id/tips"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Tips to Improve"
+                        android:layout_margin="10dp"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/result" />
+
             </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
 
-            <Button
-                    android:id="@+id/predict"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="PREDICT"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginBottom="5dp" />
-
-            <TextView
-                    android:id="@+id/result"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp" />
-
-            <Button
-                    android:id="@+id/tips"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Tips to Improve"
-                    android:layout_margin="10dp"
-                    android:visibility="gone"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/result" />
-
-        </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
-
-</LinearLayout>
